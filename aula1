@@ -1,0 +1,25 @@
+public class App {
+    public static void main(String[] args) {
+        double[] lista = new double[]{2.4, 2.5};
+        int[] listaRepet = new int[]{2, 2, 3, 4, 5, 5, 5};
+        System.out.println(SomadorPares(5));
+        System.out.println(SomadorDoubles(lista, 0));
+        System.out.println(contaRepeticao(listaRepet, 0, 0, 2));
+    }
+    public static int SomadorPares(int n) {
+        if (n < 2) return 0;
+        int numb = n - (n % 2);
+        return SomadorPares(numb - 2) + numb;
+    };
+
+    public static double SomadorDoubles(double[] n, int i) {
+        if (n.length <= i) return 0;
+        return SomadorDoubles(n, i + 1) + n[i];
+    };
+
+    public static int contaRepeticao(int[] vec, int i, int c, int num) {
+        if (vec.length <= i) return c;
+        if (vec[i] == num) c++;
+        return contaRepeticao(vec, i + 1, c, num);
+    }
+}
